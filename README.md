@@ -1,4 +1,4 @@
-# Lex-Chatbot
+# Lex-Terraform
 Create a Trip-Booking chatbot using AWS Lex and Terraform.
 
 ## How to run the poc
