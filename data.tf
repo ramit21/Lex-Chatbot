@@ -3,11 +3,6 @@ data "aws_lex_bot" "book_trip" {
   version = aws_lex_bot.book_trip.version
 }
 
-data "aws_lex_bot_alias" "book_trip_dev" {
-  bot_name = aws_lex_bot_alias.book_trip_dev.bot_name
-  name     = aws_lex_bot_alias.book_trip_dev.name
-}
-
 data "aws_lex_intent" "book_car" {
   name    = aws_lex_intent.book_car.name
   version = aws_lex_intent.book_car.version

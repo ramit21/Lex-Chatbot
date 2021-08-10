@@ -4,7 +4,7 @@ data "archive_file" "lambda_zip" {
     output_path   = "lambda_function.zip"
 }
 
-resource "aws_lambda_function" "test_lambda" {
+resource "aws_lambda_function" "hotel_fullfilment_lambda" {
   filename         = "lambda_function.zip"
   function_name    = "hotel_book_fullfilment_lambda"
   role             = aws_iam_role.iam_for_lambda_tf.arn
@@ -24,6 +24,14 @@ resource "aws_iam_role" "iam_for_lambda_tf" {
       "Action": "sts:AssumeRole",
       "Principal": {
         "Service": "lambda.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    },
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "lex.amazonaws.com"
       },
       "Effect": "Allow",
       "Sid": ""
