@@ -10,7 +10,8 @@ and the user with correct IAM permissions granted, will be able to connect to AW
 
 ## Important files
 1. aws-exports.js - not committed, has all details about cognito pool created by Amplify. 
-1. maint.ts - 
+2. maint.ts - Configure Amplify using the export file mentioned above.
+3. app.module.ts - Import and configure AmplifyAngularModule and AmplifyService
 
 ## Setup Amplify based Angular app
 1. npm install -g @angular/cli
