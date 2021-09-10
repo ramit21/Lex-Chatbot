@@ -1,5 +1,5 @@
 # Lex-Chatbot
-Create a AWS Lex chatbot using Terraform, and expose it on angular app.
+Create a AWS Lex chatbot using Terraform, and access it via angular app.
 
 Amplify makes it very easy to integrate yout angular code with Lex chatbot. Our Amplify based angular app has cognito to authenticate the user, 
 and the user with correct IAM permissions granted, will be able to connect to AWS Lex chatbot.
