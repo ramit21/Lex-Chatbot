@@ -9,6 +9,18 @@ import Amplify from "aws-amplify";
 import aws_exports from "./aws-exports";
 Amplify.configure(aws_exports);
 
+Amplify.configure({
+  Interactions: {
+    bots: {
+      "BookTrip": {
+        "name": "BookTrip",
+        "alias": "$LATEST",
+        "region": "us-east-1"
+      },
+    }
+  }
+});
+
 if (environment.production) {
   enableProdMode();
 }

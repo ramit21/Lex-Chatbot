@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 
-//import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 import {AmplifyUIAngularModule} from "@aws-amplify/ui-angular";
 
 @NgModule({
@@ -18,7 +17,6 @@ import {AmplifyUIAngularModule} from "@aws-amplify/ui-angular";
   imports: [
     BrowserModule,
     AppRoutingModule,
-   // AmplifyAngularModule,
     AmplifyUIAngularModule
   ],
   providers: [],
