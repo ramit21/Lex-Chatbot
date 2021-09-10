@@ -11,11 +11,16 @@ and the user with correct IAM permissions granted, will be able to connect to AW
 ## Important files
 1. aws-exports.js - not committed, has all details about cognito pool created by Amplify. 
 2. maint.ts - Configure Amplify using the export file mentioned above.
-3. app.module.ts - Import and configure AmplifyAngularModule and AmplifyService
+3. app.module.ts - Import and configure AmplifyAngularModule and AmplifyService. Routes for auth and home components.
+4. auth.component.html - Amplify provided directive for cognito login page.
+5. home.component.html - Amplify provided directive for Lex chatbot.
 
 ## Setup Amplify based Angular app
 1. npm install -g @angular/cli
 2. ng new my-chatbot-app --routing --styles=scss
 3. Create Auth and Home controller using ng g c command. Auth component will have cognito auth, and home component will have chat component.
 4. Follow Amplify docs (https://docs.amplify.aws/start/) and select angular. Run the amplify setup commands from above url inside the my-chatbot-app folder.
+5. Setup Cognito and lex chatbot directives in files mentioned in above section. for chatbot directive, refer this link of documentation: https://docs.amplify.aws/ui/interactions/chatbot/q/framework/angular/. 
+This is where you provide your chatbot name as well as created on Lex.
+
 
