@@ -138,11 +138,11 @@ resource "aws_lex_intent" "book_hotel" {
   }
 
   description = "Intent to book a hotel on StayBooker"
-  
+
   fulfillment_activity {
     type = "ReturnIntent"
   }
-/*
+  /*
  fulfillment_activity {
     type      = "CodeHook"
     code_hook {
