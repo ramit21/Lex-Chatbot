@@ -7,8 +7,11 @@ Create a Trip-Booking chatbot using AWS Lex and Terraform.
 3. terraform apply
 4. Go to aws console, and click on 'Build'.
 5. Start testing bot on the console itself.
+6. (This step is yet to be automated by terraform in this poc) On BookHotel intent, select hotel_book_fullfilment_lambda as the fullfilment lambda function. Build and publish.
+7. Go to my-chatbot-app folder, and do 'ng serve'. Open the app on localhost:4200
+8. Login at url localhost:4200/login, and then open chatbot app at localhost:4200/home
 
-### Files:
+### Important Files:
 1. bot_alias: aliases to different bot versions
 2. slot_types.tf: enum values for the slots
 3. bot.tf: all bot details including the intents and abort message.
