@@ -30,7 +30,7 @@ resource "aws_iam_policy" "lambda_iam_policy" {
     },
     {
       "Action": [
-          "cognito-idp:AdminGetUser"
+          "cognito-idp:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
