@@ -1,19 +1,55 @@
 const AWS = require('aws-sdk');
 const cog = new AWS.CognitoIdentityServiceProvider();
+
  
 exports.handler = async (event, context) => {
-    const location = event.currentIntent.slots["Location"];
-    const checkInDate = event.currentIntent.slots["CheckInDate"];
-    const nights = event.currentIntent.slots["Nights"];
-    const roomType = event.currentIntent.slots["RoomType"];
+    console.log("EVENT = ", event);
+    const { name, slots } = event.currentIntent;
+    const location = slots["Location"];
+    const checkInDate = slots["CheckInDate"];
+    const nights = slots["Nights"];
+    const roomType = slots["RoomType"];
     const response = "Booking completed for location = " + location +
         ", checkInDate = " + checkInDate +
         ", nights = " + nights +
         ", roomType = " + roomType;
 
-    const result = await fetchUserDetails(event.userId);
-    console.log("result", result);
-    
+    if(!roomType){
+        console.log("Asking for roomtype for intent = ",  name);
+       
+        return {
+          "sessionAttributes": {},
+          "dialogAction": {
+            "type": "ElicitSlot",
+            "intentName": name,
+            slots,
+            "slotToElicit": "RoomType",
+            "message": {
+              "contentType": "PlainText",
+              "content": "Please select the room type from below!!!"
+            },
+            'responseCard': {'version': 1,
+                             'contentType': 'application/vnd.amazonaws.card.generic',
+                                 'genericAttachments': [{
+                                     'title': 'Room selection',
+                                     'subTitle': 'What type of room?',
+                                     'imageUrl': 'http://www.lisbonlx.com/p/2018/03/sample-image-url-world-of-example-in-sample-image-url.jpg',
+                                     'buttons':[ 
+                                         {
+                                            'text':'King',
+                                            'value':'king'
+                                         },
+                                         {
+                                            'text':'Queen',
+                                            'value':'queen'
+                                         }
+                                      ]
+                                 }]}
+          }
+        };
+        
+    }
+     
     return {
       "sessionAttributes": {},
       "dialogAction": {
@@ -40,7 +76,7 @@ async function fetchUserDetails(userId) {
         
         Limit: 0,
         PaginationToken: null,
-        "UserPoolId": "XXXX" // Enter Congito user pool id, looks like us-east-9_KDFn1cvys
+        "UserPoolId": "us-east-1_IqN3yiVcD" // Enter Congito user pool id, looks like us-east-9_KDFn1cvys
     };
     return new Promise((resolve, reject) => {
         cog.listUsers(req,(data) => {
