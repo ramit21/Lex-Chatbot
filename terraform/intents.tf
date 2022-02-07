@@ -123,6 +123,8 @@ resource "aws_lex_intent" "book_car" {
 }
 
 resource "aws_lex_intent" "book_hotel" {
+
+  /*
   confirmation_prompt {
     max_attempts = 2
 
@@ -136,7 +138,7 @@ resource "aws_lex_intent" "book_hotel" {
       content_type = "PlainText"
     }
   }
-
+*/
   description = "Intent to book a hotel on StayBooker"
 
   fulfillment_activity {

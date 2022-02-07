@@ -21,6 +21,22 @@ Amplify.configure({
   }
 });
 
+/* Lex v2 configs
+Amplify.configure({
+  Interactions: {
+    bots: {
+      "Bookv2": {
+        "botId": 'XBNFIWACZC',
+        "botAliasId": 'T7II19WTNX',
+        "region": "us-east-1",
+        "providerName": "AWSLex2Provider",
+        "localeId": 'en_US', 
+      }
+    }
+  }
+});
+*/
+
 if (environment.production) {
   enableProdMode();
 }

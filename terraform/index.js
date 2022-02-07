@@ -94,3 +94,99 @@ async function fetchUserDetails(userId) {
         });
     });
 }
+
+/* Lex V2 resposne code
+const AWS = require('aws-sdk');
+
+exports.handler = async (event, context) => {
+    //console.log("EVENT = ", event);
+    const sessionState = event['sessionState'];
+    const sessionAttributes = sessionState['sessionAttributes'];
+
+    const location = get_slot(event, 'Location');
+    const checkInDate = get_slot(event, "CheckInDate");
+    const nights = get_slot(event, "Nights");
+    const roomType = get_slot(event, "RoomType");
+    
+    const response = "Booking completed for location = " + location +
+        ", checkInDate = " + checkInDate +
+        ", nights = " + nights +
+        ", roomType = " + roomType;
+
+    console.log('slots = ', response);
+
+    if(!roomType){
+        const message = {
+                'contentType': 'ImageResponseCard',
+                "imageResponseCard": {
+                    "title": "Room Type",
+                    "subtitle": "Select your room preference",
+                    //"imageUrl": "",
+                    "buttons": [
+                        {
+                            "text": "King",
+                            "value": "king"
+                        },
+                        {
+                            "text": "Queen",
+                            "value": "queen"
+                        },
+                        {
+                            "text": "Deluxe",
+                            "value": "deluxe"
+                        }
+                    ]
+                }
+            };
+        return elicit_intent(event, sessionAttributes, message);
+    }
+    
+   const message =  {
+            'contentType': 'PlainText',
+            'content': response
+        };
+    return close(event, sessionAttributes, message);
+};
+
+function close(intent_request, session_attributes, message) {
+    intent_request['sessionState']['intent']['state'] = "Fulfilled";
+    return {
+        'sessionState': {
+            'sessionAttributes': session_attributes,
+            'dialogAction': {
+                'type': 'Close'
+            },
+            'intent': intent_request['sessionState']['intent']
+        },
+        'messages': [message],
+        'sessionId': intent_request['sessionId'],
+        'requestAttributes': intent_request['requestAttributes'] 
+    };
+}
+
+function elicit_intent(intent_request, session_attributes, message){
+    intent_request['sessionState']['intent']['state'] = "InProgress";
+    return {
+        'sessionState': {
+            'sessionAttributes': session_attributes,
+            'dialogAction': {
+                'type': 'ElicitSlot',
+                "slotToElicit": "RoomType",
+            },
+            'intent': intent_request['sessionState']['intent']
+        },
+        'messages': [message],
+        'sessionId': intent_request['sessionId'],
+        'requestAttributes': intent_request['requestAttributes']
+    };
+}
+
+function get_slot(intent_request, slotName) {
+    const slots = intent_request['sessionState']['intent']['slots'];
+    if(slots[slotName] && slots[slotName].value && slots[slotName].value.interpretedValue){
+        return slots[slotName].value.interpretedValue;
+    }
+   return null;
+}
+*/
+    
