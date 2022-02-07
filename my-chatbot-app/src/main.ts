@@ -26,10 +26,10 @@ Amplify.configure({
   Interactions: {
     bots: {
       "Bookv2": {
-        "botId": 'XBNFIWACZC',
-        "botAliasId": 'T7II19WTNX',
+        "botId": 'XXXXXX',
+        "botAliasId": 'XXXXXX',
         "region": "us-east-1",
-        "providerName": "AWSLex2Provider",
+        "providerName": "AWSLex2Provider", //third party plugin to connect to Lex v2 using amplify
         "localeId": 'en_US', 
       }
     }
