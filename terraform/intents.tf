@@ -3,12 +3,12 @@ resource "aws_lex_intent" "book_car" {
     max_attempts = 2
 
     message {
-      content      = "Okay, I have you down for a {CarType} rental in {PickUpCity} from {PickUpDate} to {ReturnDate}.  Should I book the reservation?"
+      content      = "Okay, I have you down for a {CarType} rental in {PickUpCity} from {PickUpDate} to {ReturnDate}.  Should I book the examples?"
       content_type = "PlainText"
     }
 
     message {
-      content      = "The price of this {CarType} rental in {PickUpCity} from {PickUpDate} to {ReturnDate} is [currentReservationPrice] dollars.  Shall I book the reservation?"
+      content      = "The price of this {CarType} rental in {PickUpCity} from {PickUpDate} to {ReturnDate} is [currentReservationPrice] dollars.  Shall I book the examples?"
       content_type = "PlainText"
     }
   }
@@ -23,7 +23,7 @@ resource "aws_lex_intent" "book_car" {
 
   rejection_statement {
     message {
-      content      = "Okay, I have cancelled your reservation in progress."
+      content      = "Okay, I have cancelled your examples in progress."
       content_type = "PlainText"
     }
   }
@@ -31,11 +31,11 @@ resource "aws_lex_intent" "book_car" {
   sample_utterances = [
     "Book a car",
     "Reserve a car",
-    "Make a car reservation",
+    "Make a car examples",
   ]
 
   slot {
-    description = "City in which the car reservation is being made"
+    description = "City in which the car examples is being made"
     name        = "PickUpCity"
     priority    = 1
 
@@ -129,12 +129,12 @@ resource "aws_lex_intent" "book_hotel" {
     max_attempts = 2
 
     message {
-      content      = "Okay, I have you down for a {Nights} night stay in {Location} starting {CheckInDate}.  Shall I book the reservation?"
+      content      = "Okay, I have you down for a {Nights} night stay in {Location} starting {CheckInDate}.  Shall I book the examples?"
       content_type = "PlainText"
     }
 
     message {
-      content      = "The price of this {Nights} night stay in {Location} from {CheckInDate} is [currentReservationPrice] dollars.  Shall I book the reservation?"
+      content      = "The price of this {Nights} night stay in {Location} from {CheckInDate} is [currentReservationPrice] dollars.  Shall I book the examples?"
       content_type = "PlainText"
     }
   }
@@ -157,7 +157,7 @@ resource "aws_lex_intent" "book_hotel" {
 
   rejection_statement {
     message {
-      content      = "Okay, I have cancelled your reservation in progress."
+      content      = "Okay, I have cancelled your examples in progress."
       content_type = "PlainText"
     }
   }
